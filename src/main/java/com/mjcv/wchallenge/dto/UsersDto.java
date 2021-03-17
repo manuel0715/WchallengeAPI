@@ -5,6 +5,7 @@
  */
 package com.mjcv.wchallenge.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
@@ -13,7 +14,7 @@ import lombok.Data;
  * @author Manuel Camargo
  */
 @Data
-public class UsersDto {
+public class UsersDto implements Serializable{
     private int id_usuario;
     private int identificacion;
     private int nombre;    

@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UsersRepository extends CrudRepository<Users, String>{
     
     @Transactional(readOnly = true)
-    Optional<Users> findbyNombre(String id_usuario);
+    Optional<Users> findbyNombre(String nombre);
     
     @Override
     Page<Users> findAll();

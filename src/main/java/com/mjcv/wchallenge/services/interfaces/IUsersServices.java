@@ -17,8 +17,14 @@ import org.springframework.stereotype.Service;
 @Service
 public interface IUsersServices {
     Page<UsersDto> findAll();
+    
     UsersDto findName(String nombre);
+    
+    UsersDto findByIdUsuario(String nombre);
+    
     void save(UsersDto user);
+    
     void saveAll(List<UsersDto> users);
-    void deleteById(int id_usuario);
+    
+    void deleteById(String id_usuario);
 }
