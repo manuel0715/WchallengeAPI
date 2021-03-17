@@ -10,6 +10,7 @@ import com.mjcv.wchallenge.entities.Users;
 import com.mjcv.wchallenge.repository.UsersRepository;
 import com.mjcv.wchallenge.services.interfaces.IUsersServices;
 import com.mjcv.wchallenge.utils.MHelpers;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,20 @@ public class UsersImpl implements IUsersServices{
             return null;
         }
         
-        return MHelpers.modelMapper().map(this.userRepository.findbyNombre(nombre), UsersDto.class);
+        return MHelpers.modelMapper().map(users.get(), UsersDto.class);
         
+    }
+    
+    @Override
+    public UsersDto findByIdUsuario(String idUsuario) {
+        
+       Optional<Users> users = this.userRepository.findById(idUsuario);
+       
+       if(!users.isPresent()){
+            return null;
+        }
+        
+        return MHelpers.modelMapper().map(users.get(), UsersDto.class);
     }
 
     @Override
@@ -54,11 +67,22 @@ public class UsersImpl implements IUsersServices{
 
     @Override
     public void saveAll(List<UsersDto> users) {
+        
+        List<Users> u=new ArrayList<>();
+        
+        users.forEach(user -> {
+            
+            Users us =MHelpers.modelMapper().map(user, Users.class);
+            
+            u.add(us);
+        });
+        
+        this.userRepository.saveAll(u);
     
     }
 
     @Override
-    public void deleteById(int id_usuario) {
+    public void deleteById(String id_usuario) {
         this.userRepository.deleteById(id_usuario);
     }
     
@@ -66,4 +90,5 @@ public class UsersImpl implements IUsersServices{
         return MHelpers.modelMapper().map(user, UsersDto.class);
         
     }
+   
 }
