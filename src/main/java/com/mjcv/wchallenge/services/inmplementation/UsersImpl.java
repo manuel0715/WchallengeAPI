@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 /**
@@ -28,10 +27,18 @@ public class UsersImpl implements IUsersServices{
     private UsersRepository userRepository;
     
     @Override
-    public Page<UsersDto> findAll() {
-        Page<Users> users =this.userRepository.findAll();
+    public List<UsersDto> findAll() {
         
-        return users.map(this::convertToUsersDto);
+        List<UsersDto> dto =new ArrayList<>();
+        Iterable<Users> users =this.userRepository.findAll();
+        
+        for (Users user : users) {
+            UsersDto userDto =MHelpers.modelMapper().map(user, UsersDto.class);
+            
+            dto.add(userDto);
+        }
+        
+        return dto;
     }    
 
     @Override

@@ -1,0 +1,9 @@
+com\mjcv\wchallenge\dto\UsersDto.class
+com\mjcv\wchallenge\services\inmplementation\UsersImpl.class
+com\mjcv\wchallenge\services\interfaces\IUsersServices.class
+com\mjcv\wchallenge\utils\MHelpers.class
+com\mjcv\wchallenge\controller\ApiController.class
+com\mjcv\wchallenge\ServletInitializer.class
+com\mjcv\wchallenge\WchallengeApplication.class
+com\mjcv\wchallenge\entities\Users.class
+com\mjcv\wchallenge\repository\UsersRepository.class

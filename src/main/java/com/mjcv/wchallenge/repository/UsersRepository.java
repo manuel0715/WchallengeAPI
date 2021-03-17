@@ -7,7 +7,6 @@ package com.mjcv.wchallenge.repository;
 
 import com.mjcv.wchallenge.entities.Users;
 import java.util.Optional;
-import org.springframework.data.domain.Page;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,10 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UsersRepository extends CrudRepository<Users, String>{
     
     @Transactional(readOnly = true)
-    Optional<Users> findbyNombre(String nombre);
-    
-    @Override
-    Page<Users> findAll();
+    Optional<Users> findbyNombre(String nombre);    
 
     public void deleteById(int id_usuario);
 }

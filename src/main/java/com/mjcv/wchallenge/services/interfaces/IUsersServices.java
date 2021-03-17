@@ -7,7 +7,6 @@ package com.mjcv.wchallenge.services.interfaces;
 
 import com.mjcv.wchallenge.dto.UsersDto;
 import java.util.List;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface IUsersServices {
-    Page<UsersDto> findAll();
+    List<UsersDto> findAll();
     
     UsersDto findName(String nombre);
     

@@ -5,6 +5,9 @@
  */
 package com.mjcv.wchallenge.controller;
 
+import com.mjcv.wchallenge.services.interfaces.IUsersServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/")
+@RequestMapping("/users")
 public class ApiController {
-    
-    @GetMapping("example")
+    @Autowired
+    private IUsersServices userServices;
+    @GetMapping(value = "/all",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> index(){
-        return ResponseEntity.ok("OK");
+        
+        return ResponseEntity.ok(this.userServices.findAll());
     
     }
 }
