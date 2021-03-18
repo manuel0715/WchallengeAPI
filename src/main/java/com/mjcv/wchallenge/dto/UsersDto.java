@@ -15,10 +15,10 @@ import lombok.Data;
  */
 @Data
 public class UsersDto implements Serializable{
-    private int id_usuario;
-    private int identificacion;
-    private int nombre;    
-    private int email;
+    private String id_usuario;
+    private String identificacion;
+    private String nombre;    
+    private String email;
     private String clave;
     private Date fecha_creacion;
 }

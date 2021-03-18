@@ -19,7 +19,5 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UsersRepository extends CrudRepository<Users, String>{
     
     @Transactional(readOnly = true)
-    Optional<Users> findbyNombre(String nombre);    
-
-    public void deleteById(int id_usuario);
+    Optional<Users> findByNombre(String nombre);   
 }

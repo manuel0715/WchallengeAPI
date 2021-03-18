@@ -27,13 +27,13 @@ public class Users implements Serializable {
     
     @Id
     @Column(name="id_usuario")
-    private int id_usuario;
+    private String id_usuario;
     @Column(name="identificacion")
-    private int identificacion;
+    private String identificacion;
     @Column(name="nombre")
-    private int nombre;
+    private String nombre;
     @Column(name="email")        
-    private int email;
+    private String email;
     @Column(name="clave")
     private String clave;
     @Column(name="fecha_creacion")

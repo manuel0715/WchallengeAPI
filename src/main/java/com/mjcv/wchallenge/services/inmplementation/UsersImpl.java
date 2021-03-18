@@ -44,7 +44,7 @@ public class UsersImpl implements IUsersServices{
     @Override
     public UsersDto findName(String nombre) {
         
-        Optional<Users> users = this.userRepository.findbyNombre(nombre);
+        Optional<Users> users = this.userRepository.findByNombre(nombre);
         
         if(!users.isPresent()){
             return null;
